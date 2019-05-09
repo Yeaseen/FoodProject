@@ -1,0 +1,76 @@
+Name of the label: Banana
+
+Component Name 	 measurement 	 Metric 	 Daily Percentage
+
+1.Calories --	-- 	110 --	 --	kcal --	 --	5.5%
+
+2.Carbohydrates --	-- 	15 --	 --	mg --	 --	4.83871%
+
+3.Protein --	-- 	1 --	 --	mg --	 --	2%
+
+4.Fat --	-- 	0 --	 --	mg --	 --	0%
+
+5.SaturatedFat --	-- 	0 --	 --	gm --	 --	0%
+
+6.Sugars --	-- 	12 --	 --	gm --	 --	13.3333%
+
+7.DietaryFibre --	-- 	3 --	 --	gm --	 --	10%
+
+8.Sodium --	-- 	0 --	 --	mg --	 --	0%
+
+9.Potassium --	-- 	450 --	 --	mg --	 --	11.25%
+
+10.Magnesium --	-- 	34 --	 --	mg --	 --	8.94737%
+
+11.Iron --	-- 	0.3 --	 --	mg --	 --	1.66667%
+
+12.VitaminA --	-- 	81 --	 --	IU --	 --	1.62%
+
+13.VitaminB --	-- 	0 --	 --	mg --	 --	0%
+
+14.VitaminC --	-- 	8.7 --	 --	mg --	 --	14.5%
+
+15.VitaminD --	-- 	0 --	 --	IU --	 --	0%
+
+
+
+===============================================================
+
+Name of the label: Banana
+
+Component Name 	 measurement 	 Metric 	 Daily Percentage
+
+1.Calories --	-- 	110 --	 --	kcal --	 --	5.5%
+
+2.Carbohydrates --	-- 	30 --	 --	mg --	 --	9.67742%
+
+3.Protein --	-- 	1 --	 --	mg --	 --	2%
+
+4.Fat --	-- 	0 --	 --	mg --	 --	0%
+
+5.SaturatedFat --	-- 	0 --	 --	gm --	 --	0%
+
+6.Sugars --	-- 	12 --	 --	gm --	 --	13.3333%
+
+7.DietaryFibre --	-- 	3 --	 --	gm --	 --	10%
+
+8.Sodium --	-- 	0 --	 --	mg --	 --	0%
+
+9.Potassium --	-- 	450 --	 --	mg --	 --	11.25%
+
+10.Magnesium --	-- 	34 --	 --	mg --	 --	8.94737%
+
+11.Iron --	-- 	0.3 --	 --	mg --	 --	1.66667%
+
+12.VitaminA --	-- 	81 --	 --	IU --	 --	1.62%
+
+13.VitaminB --	-- 	0 --	 --	mg --	 --	0%
+
+14.VitaminC --	-- 	8.7 --	 --	mg --	 --	14.5%
+
+15.VitaminD --	-- 	0 --	 --	IU --	 --	0%
+
+
+
+===============================================================
+

@@ -1,0 +1,31 @@
+Banana
+
+Calories 110 kcal
+
+Carbohydrates 30 mg 
+
+Protein 1 mg
+
+Fat 0 mg
+
+SaturatedFat 0 gm
+
+Sugars  12 gm
+
+DietaryFibre  3 gm 
+
+Sodium  0 mg
+
+Potassium  450 mg
+
+Magnesium  34 mg 
+
+Iron 0.3 mg
+
+VitaminA  81 IU
+
+VitaminB  0 mg
+
+VitaminC  8.7 mg
+
+VitaminD  0 IU

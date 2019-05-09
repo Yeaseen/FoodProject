@@ -1,0 +1,33 @@
+
+Daily intake of nutrition elements for an adult. 
+
+Calories = 2000 kcal
+
+Carbohydrates = 310 mg 
+
+Protein = 50 mg
+
+Fat = 70 mg
+
+Saturated Fat = 24 gm
+
+Sugars = 90 gm
+
+Dietary Fibre = 30 gm 
+
+Sodium = 2.3 mg
+
+Potassium = 4000 mg
+
+Magnesium = 380 mg 
+
+Iron = 18 mg
+
+Vitamin A = 5000 IU
+
+Vitamin B = 2 mg
+
+Vitamin C = 60 mg
+
+Vitamin D = 400 IU 
+
