@@ -20,7 +20,7 @@ public:
 	char metric[15][STRMAX];
 	double dailyPercent[15]= {};
 
-	double dailyIntake[15]={2000, 310, 50, 70,24,90,30,2.3,4000,380,18,5000,2,60,400};
+	double dailyIntake[15]={2000, 310, 56, 70, 24, 90, 30, 2.3, 4, 0.35, 25, 5000, 2, 60, 400};
 
 	void print(){
 		cout<<"Name of the label: "<<name<<endl;
@@ -36,17 +36,44 @@ public:
 		}
 		cout<<endl<<endl<<"==============================================================="<<endl<<endl;
 	}
+};
 
+class Recipe
+{
+public:
+	char name[STRMAX];
+	int servePeople;
+	int numOfIngrad;
 
+	char componentsR[100][STRMAX];
+
+	char measurementR[100][STRMAX];
+
+	char metricR[100][STRMAX];
+
+	void print(){
+		cout<<"Name of the Recipe: "<<name<<endl;
+		cout<<"Number of People Served: "<<servePeople<<endl;
+		cout<<"Recipe Name                Measurement            Metric"<<endl;
+
+		for (int i = 0; i < numOfIngrad; ++i)
+		{
+			cout<<componentsR[i]<<"         "<<measurementR[i]<<"             "<<metricR[i]<<endl<<endl;
+		}
+
+		cout<<endl<<endl<<"==============================================================="<<endl<<endl;
+	}
 
 };
-void showMenuBar(Nutrition nutr[],int current);
-void NutritionPage(Nutrition nutr[], int current);
-void nutritionViewPage(Nutrition nutr[], int current);
-void quitPage(Nutrition nutr[], int current);
 
 
-void quitPage(Nutrition nutr[], int current){
+void showMenuBar(Nutrition nutr[], int current, Recipe recip[], int currRecip);
+void NutritionPage(Nutrition nutr[], int current, Recipe recip[], int currRecip);
+void nutritionViewPage(Nutrition nutr[], int current, Recipe recip[], int currRecip);
+void quitPage(Nutrition nutr[], int current,Recipe recip[], int currRecip);
+void RecipePage(Nutrition nutr[], int current, Recipe recip[], int currRecip);
+
+void quitPage(Nutrition nutr[], int current,Recipe recip[], int currRecip){
 
 	cout<<endl<<"******** Quit Page ******"<<endl;
     cout<<endl<<"Options"<<endl;
@@ -77,7 +104,7 @@ void quitPage(Nutrition nutr[], int current){
    		}
          
         save.close();
-        cout<<endl<<"Succcessfully save all data to database"<<endl;
+        cout<<endl<<"Succcessfully save all data to NutritionDatabase"<<endl;
         cout<<endl<<"Application is clossing.. .. .."<<endl;
    		exit(0);	
    	} 
@@ -86,12 +113,12 @@ void quitPage(Nutrition nutr[], int current){
    		exit(0);
    	}
    	else{
-   		showMenuBar(nutr,current);
+   		showMenuBar(nutr,current,recip,currRecip);
    	}
 
 }
 
-void showMenuBar(Nutrition nutr[], int current){
+void showMenuBar(Nutrition nutr[], int current, Recipe recip[], int currRecip){
 	cout<<endl<<endl;
 	cout<<"********* Main Menu Page *********"<<endl;
 	cout<<endl<<"Options"<<endl;
@@ -104,31 +131,72 @@ void showMenuBar(Nutrition nutr[], int current){
 
    	
    	if(option==1) {
-   		NutritionPage(nutr,current);
+   		NutritionPage(nutr,current,recip,currRecip);
         
    	}
    	else if(option==2){
-   		cout<<endl<<"******** Recipes label ******"<<endl;
-   		cout<<endl<<"Not programmed this path"<<endl;
-   		showMenuBar(nutr,current);
+   		RecipePage(nutr,current,recip,currRecip);
+
    	}
    	else if(option==3){
-   		
-   		
-   		quitPage(nutr,current);
+   		quitPage(nutr,current,recip,currRecip);
    	}
 
 }
 
-void NutritionPage(Nutrition nutr[], int current){
+void RecipePage(Nutrition nutr[], int current, Recipe recip[], int currRecip){
+    cout<<endl<<endl;
+	cout<<"******* Recipe Page **********"<<endl;
+	cout<<endl<<"Options"<<endl;
+
+	cout<<"1.Add a new Recipe label."<<endl;
+	cout<<"2.Edit a Recipe label"<<endl;
+	cout<<"3.Delete a Recipe label"<<endl;
+	cout<<"4.List of Recipes that contains up to 3 ingredients"<<endl;
+	cout<<"5.Go to Recipe View page"<<endl;
+	cout<<"6.Back to main menu"<<endl;
+	cout<<"To choose press corresponding number: "<<endl;
+    int option;
+    cin>>option;
+
+    if(option==1){
+    	cout<<"Not programmed this path yet"<<endl;
+    	RecipePage(nutr,current,recip,currRecip);
+
+    }
+    else if(option==2){
+    	cout<<"Not programmed this path yet"<<endl;
+    	RecipePage(nutr,current,recip,currRecip);
+    }
+    else if(option==3){
+    	cout<<"Not programmed this path yet"<<endl;
+    	RecipePage(nutr,current,recip,currRecip);
+    }
+    else if(option==4){
+    	cout<<"Not programmed this path yet"<<endl;
+    	RecipePage(nutr,current,recip,currRecip);
+    }
+    else if(option==5){
+    	cout<<"Not programmed this path yet"<<endl;
+    	RecipePage(nutr,current,recip,currRecip);
+    }
+    else if(option==6){
+    	cout<<endl<<"******** Back to main menu from Recipe Page ******"<<endl;
+		showMenuBar(nutr,current,recip,currRecip);
+    	
+    }
+    
+}
+
+void NutritionPage(Nutrition nutr[], int current, Recipe recip[], int currRecip){
 
 	cout<<endl<<endl;
 	cout<<"******* Nutrion Page **********"<<endl;
 	cout<<endl<<"Options"<<endl;
 
-	cout<<"1.Add a new label."<<endl;
-	cout<<"2.Edit a label"<<endl;
-	cout<<"3.Delete a label"<<endl;
+	cout<<"1.Add a new Nutrion label."<<endl;
+	cout<<"2.Edit a Nutrion label"<<endl;
+	cout<<"3.Delete a Nutrion label"<<endl;
 	cout<<"4.Go to Nutrition View page"<<endl;
 	cout<<"5.Back to main menu"<<endl;
 	cout<<"To choose press corresponding number: "<<endl;
@@ -139,14 +207,14 @@ void NutritionPage(Nutrition nutr[], int current){
 		current++;
         if(current>50){
         	cout<<"There is no space for Nutrition labels"<<endl;
-        	NutritionPage(nutr,current);
+        	NutritionPage(nutr,current,recip,currRecip);
         }
 		char inp[20];
 		cout<<"Enter the File name (filename.txt): "<<endl;
 		//cin.getline(inp,sizeof(inp));
 		cin>>inp;
 		ifstream stage2;
-		stage2.open ("banana.txt");
+		stage2.open (inp);
 		stage2>>nutr[current-1].name;
 
 
@@ -160,9 +228,8 @@ void NutritionPage(Nutrition nutr[], int current){
 
 		stage2.close();
 
-    cout<<"Adding part done. "<<endl;
-	NutritionPage(nutr,current);
-	
+    cout<<"Adding a new Nutrition part done. "<<endl;
+	NutritionPage(nutr,current,recip,currRecip);
 	}
 	else if(option==2){
 		cout<<"******** Edit a Label's component"<<endl;
@@ -181,7 +248,7 @@ void NutritionPage(Nutrition nutr[], int current){
 
 		cout<<"sucessfully Edited the value"<<endl;
 
-		NutritionPage(nutr,current);
+		NutritionPage(nutr,current,recip,currRecip);
 	}
 	else if(option==3){
 		cout<<endl<<"******** Delete label ******"<<endl;
@@ -193,7 +260,7 @@ void NutritionPage(Nutrition nutr[], int current){
 
 		if(itemNo>current){
 			cout<<"Your input is invalid"<<endl;
-			nutritionViewPage(nutr,current);
+			NutritionPage(nutr,current,recip,currRecip);
 
 		}
 		else{
@@ -203,22 +270,22 @@ void NutritionPage(Nutrition nutr[], int current){
 			}
 			current-=1;
 			cout<<"Nutrition label deleted sucessfully!"<<endl;
-			NutritionPage(nutr,current);
+			NutritionPage(nutr,current,recip,currRecip);
 		}
 
 	}
 	else if(option==4){
 
-       	nutritionViewPage(nutr,current);
+       	nutritionViewPage(nutr,current,recip,currRecip);
 	}
 	else if(option==5){
 		cout<<endl<<"******** Back to main menu from Nutrition Page ******"<<endl;
-		showMenuBar(nutr,current);
+		showMenuBar(nutr,current,recip,currRecip);
 	}
 
 }
 
-void nutritionViewPage(Nutrition nutr[], int current){
+void nutritionViewPage(Nutrition nutr[], int current, Recipe recip[], int currRecip){
 	cout<<endl<<"******** Nutrition View Page ******"<<endl;
     cout<<"There are "<<current<<" nutrition labels now"<<endl;
 	
@@ -229,8 +296,7 @@ void nutritionViewPage(Nutrition nutr[], int current){
 	cout<<"2. View specific label's components"<<endl;
 	cout<<"3. Print all Nutrition label's details to a output file"<<endl;
 	cout<<"4. Go to Nutrition Page"<<endl;
-	cout<<"5. Go to Main Menu Bar"<<endl;
-
+    cout<<"5. Go to Main Menu View"<<endl;
 	cout<<"To choose press corresponding number: "<<endl;
 
 	int option;
@@ -242,7 +308,7 @@ void nutritionViewPage(Nutrition nutr[], int current){
 		for (int i = 0; i < current; ++i){
         	cout<<i+1<<".     "<<nutr[i].name<<endl;
         }
-        nutritionViewPage(nutr,current);
+        nutritionViewPage(nutr,current,recip,currRecip);
 
 	}
 	else if(option==2){
@@ -252,18 +318,18 @@ void nutritionViewPage(Nutrition nutr[], int current){
 		cin>>itemNo;
 		if(itemNo>current){
 			cout<<"Your input is invalid"<<endl;
-			nutritionViewPage(nutr,current);
+			nutritionViewPage(nutr,current,recip,currRecip);
 		}
 		else{
 			cout<<endl<<"Output of Query"<<endl;
 			nutr[itemNo-1].print();
-			nutritionViewPage(nutr,current);
+			nutritionViewPage(nutr,current,recip,currRecip);
 		}
 
 	}
 	else if(option==3){
 		ofstream fout;
-		fout.open ("Output.txt");
+		fout.open ("OutputNutrition.txt");
 
 		for (int i = 0; i < current; ++i){
 
@@ -284,16 +350,15 @@ void nutritionViewPage(Nutrition nutr[], int current){
         fout.close();
 
         cout<<"Print all labels's compoments to Output.txt file"<<endl;
-        NutritionPage(nutr,current);
+        NutritionPage(nutr,current,recip,currRecip);
 
 
 	}
 	else if(option==4){
-		NutritionPage(nutr,current);
+		NutritionPage(nutr,current,recip,currRecip);
 	}
 	else if(option==5){
-		showMenuBar(nutr,current);
-
+		showMenuBar(nutr,current,recip,currRecip);
 	}
 
 
@@ -301,18 +366,13 @@ void nutritionViewPage(Nutrition nutr[], int current){
 
 int main(){
    	
-	Nutrition lists[50];
-    
-	
-
-  
-	
+	Nutrition lists[arraySize];
 	ifstream stage1;
-	stage1.open ("Database.txt");
-	int items;
-	stage1>>items;
+	stage1.open("NutritionDatabase.txt");
+	int currNutr;
+	stage1>>currNutr;
 
-    for (int j = 0; j < items; ++j){
+    for (int j = 0; j < currNutr; ++j){
 
     	stage1>>lists[j].name;
     	int i=0;
@@ -325,7 +385,55 @@ int main(){
     	
     }
     stage1.close();
-    cout<<"Succcessfully fetxhed data from database file"<<endl;
-	showMenuBar(lists,items);
-   	return 0;
+    cout<<"Succcessfully fetched data from NutritionDatabase file"<<endl;
+
+	Recipe recipeList[arraySize];
+
+	//ifstream stage1;
+	stage1.open("RecipeDatabase.txt");
+
+	int currRecip;
+	stage1>>currRecip;
+	
+    char str[STRMAX];
+    
+	for (int i = 0; i < currRecip; ++i)
+	{
+	    stage1.getline(str,STRMAX);
+		stage1.getline(recipeList[i].name,STRMAX);
+        
+		stage1>>recipeList[i].servePeople;
+
+		stage1>>recipeList[i].numOfIngrad;
+		stage1.getline(str,STRMAX);
+
+		for (int j = 0; j < recipeList[0].numOfIngrad; ++j){
+
+		stage1.getline(recipeList[i].componentsR[j],STRMAX);
+		stage1>>recipeList[i].measurementR[j]>>recipeList[i].metricR[j];
+		stage1.getline(str,STRMAX);
+		}
+
+
+	}
+	stage1.close();
+
+	cout<<"Succcessfully fetched data from RecipeDatabase file"<<endl;
+
+   	showMenuBar(lists,currNutr,recipeList,currRecip);
 }
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+   	
