@@ -58,7 +58,7 @@ public:
 
 		for (int i = 0; i < numOfIngrad; ++i)
 		{
-			cout<<componentsR[i]<<"         "<<measurementR[i]<<"             "<<metricR[i]<<endl<<endl;
+			cout<<i+1<<". "<<componentsR[i]<<"         "<<measurementR[i]<<"             "<<metricR[i]<<endl<<endl;
 		}
 
 		cout<<endl<<endl<<"==============================================================="<<endl<<endl;
@@ -72,6 +72,8 @@ void NutritionPage(Nutrition nutr[], int current, Recipe recip[], int currRecip)
 void nutritionViewPage(Nutrition nutr[], int current, Recipe recip[], int currRecip);
 void quitPage(Nutrition nutr[], int current,Recipe recip[], int currRecip);
 void RecipePage(Nutrition nutr[], int current, Recipe recip[], int currRecip);
+void recipeViewPage(Nutrition nutr[], int current, Recipe recip[], int currRecip);
+
 
 void quitPage(Nutrition nutr[], int current,Recipe recip[], int currRecip){
 
@@ -188,6 +190,87 @@ void RecipePage(Nutrition nutr[], int current, Recipe recip[], int currRecip){
     
 }
 
+void recipeViewPage(Nutrition nutr[], int current, Recipe recip[], int currRecip){
+
+	cout<<endl<<"******** Recipe View Page ******"<<endl;
+    cout<<"There are "<<current<<" Recipe labels now"<<endl;
+	
+
+	cout<<endl<<"Options"<<endl;
+
+	cout<<"1. View all Recipe Label's name"<<endl;
+	cout<<"2. View specific Recipe label's components"<<endl;
+	cout<<"3. Print all Recipe label's details to a output file"<<endl;
+	cout<<"4. Go to Recipe Page"<<endl;
+    cout<<"5. Go to Main Menu View"<<endl;
+	cout<<"To choose press corresponding number: "<<endl;
+
+	int option;
+	cin>>option;
+
+	if(option==1){
+
+		cout<<endl<<endl;
+		cout<<"Item No     Names"<<endl;
+		for (int i = 0; i < currRecip; ++i){
+        	cout<<i+1<<".     "<<recip[i].name<<endl;
+        }
+        recipeViewPage(nutr,current,recip,currRecip);
+
+	}
+	else if(option==2){
+
+		cout<<"Please input the corresponding integer number within the range 1 to "<<currRecip<<endl;
+		int itemNo;
+		cin>>itemNo;
+		if(itemNo>currRecip){
+			cout<<"Your input is invalid"<<endl;
+			recipeViewPage(nutr,current,recip,currRecip);
+		}
+		else{
+			cout<<endl<<"Output of Query"<<endl;
+			recip[itemNo-1].print();
+			recipeViewPage(nutr,current,recip,currRecip);
+		}
+
+	}
+	else if(option==3){
+		ofstream fout;
+		fout.open ("OutputRecipe.txt");
+
+		for (int i = 0; i < current; ++i){
+
+			fout<<"Name of the label: "<<recip[i].name<<endl<<endl;
+			fout<<"Number of People Served: "<<recip[i].servePeople<<endl<<endl;
+			fout<<"Recipe Name                Measurement            Metric"<<endl<<endl;
+
+			for (int j = 0; j < recip[i].numOfIngrad; ++j){
+				fout<<recip[i].componentsR[j]<<"         "<<recip[i].measurementR[j]<<"             "<<recip[i].metricR[j]<<endl<<endl;
+			}
+
+		
+
+		fout<<endl<<endl<<"==============================================================="<<endl<<endl;
+
+			
+		}
+
+        fout.close();
+
+        cout<<"Print all labels's compoments to OutputRecipe.txt file"<<endl;
+        RecipePage(nutr,current,recip,currRecip);
+	}
+	else if(option==4){
+		RecipePage(nutr,current,recip,currRecip);
+	}
+	else if(option==5){
+		showMenuBar(nutr,current,recip,currRecip);
+	}
+
+}
+
+
+
 void NutritionPage(Nutrition nutr[], int current, Recipe recip[], int currRecip){
 
 	cout<<endl<<endl;
@@ -205,7 +288,7 @@ void NutritionPage(Nutrition nutr[], int current, Recipe recip[], int currRecip)
 	if(option==1){
 		cout<<endl<<"******** New label ******"<<endl;
 		current++;
-        if(current>50){
+        if(current>arraySize){
         	cout<<"There is no space for Nutrition labels"<<endl;
         	NutritionPage(nutr,current,recip,currRecip);
         }
